@@ -12,9 +12,9 @@ def multiply(a, b):
 
 
 def divide(a, b):
-    """Вернуть частное a и b; при делении на ноль — ValueError."""
+    """Вернуть частное a и b; при делении на ноль — ZeroDivisionError."""
     if b == 0:
-        raise ValueError("Деление на ноль")
+        raise ZeroDivisionError("Деление на ноль")
     return a / b
 
 
