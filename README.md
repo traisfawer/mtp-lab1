@@ -27,3 +27,19 @@ python main.py
 cp pre-commit.sh .git/hooks/pre-commit
 chmod +x .git/hooks/pre-commit
 ```
+
+## История веток
+
+- `feature` — создана от `main`, добавлен `calculator.py`, слита в `main` (fast-forward), задание Средн.6.
+- `develop` — ветка разработки Git flow, создана от `main`.
+- `feature/power`, `feature/use-calculator` — созданы от `develop`, слиты в `develop` через `--no-ff`.
+- `release/1.0.0` — создана от `develop`, слита в `main` (тег `v1.0.0`) и обратно в `develop`.
+- `hotfix/1.0.1` — создана от `main`, слита в `main` (тег `v1.0.1`) и в `develop`.
+
+Граф: `git log --oneline --graph --all --decorate`.
+
+## Проверка кода
+
+Git hook `pre-commit` запускает `flake8` для всех добавленных в индекс `.py`-файлов
+и отклоняет коммит при наличии ошибок. Файл `bad_style.py` — пример файла,
+который сначала был отклонён хуком, а после исправления замечаний закоммичен.
